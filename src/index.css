@@ -1,0 +1,41 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&display=swap');
+
+@import "tailwindcss";
+
+@theme {
+  --color-sage-50: #f4f7f5;
+  --color-sage-100: #e3ebe6;
+  --color-sage-200: #c5d9ce;
+  --color-sage-300: #9bbfa9;
+  --color-sage-400: #72a184;
+  --color-sage-500: #528565;
+  --color-sage-600: #3e694d;
+  --color-sage-700: #32543f;
+  --color-sage-800: #294334;
+  --color-sage-900: #22382c;
+
+  --color-sand-50: #fbf9f5;
+  --color-sand-100: #f5f0e6;
+  --color-sand-200: #ebdcc5;
+  --color-sand-300: #dec09d;
+  --color-sand-400: #ce9f73;
+  --color-sand-500: #c58253;
+  --color-sand-600: #b86644;
+  --color-sand-700: #994f38;
+  --color-sand-800: #7f4133;
+  --color-sand-900: #67362d;
+
+  --color-charcoal-50: #f6f6f7;
+  --color-charcoal-100: #e1e3e6;
+  --color-charcoal-200: #c2c7cc;
+  --color-charcoal-300: #9da5ad;
+  --color-charcoal-400: #7a848f;
+  --color-charcoal-500: #5f6975;
+  --color-charcoal-600: #4b535d;
+  --color-charcoal-700: #3d434b;
+  --color-charcoal-800: #35393f;
+  --color-charcoal-900: #2f3237;
+
+  --font-serif: "Playfair Display", serif;
+  --font-sans: "Inter", sans-serif;
+}
