@@ -14,7 +14,7 @@ function App() {
       <footer className="bg-charcoal-900 text-charcoal-400 py-12 px-6 border-t border-charcoal-800">
         <div className="max-w-7xl mx-auto flex flex-col md:flex-row justify-between items-center">
           <div className="mb-8 md:mb-0 text-center md:text-left">
-            <h2 className="text-2xl font-serif text-white mb-2">Yoga AI</h2>
+            <h2 className="text-2xl font-serif text-white mb-2">Serene Bliss Yoga</h2>
             <p className="text-sm"> elevating your practice through intelligence.</p>
           </div>
           <div className="flex gap-8 text-sm">
@@ -24,7 +24,7 @@ function App() {
           </div>
         </div>
         <div className="mt-12 text-center text-xs text-charcoal-600">
-          © {new Date().getFullYear()} Yoga AI Studio. All rights reserved.
+          © {new Date().getFullYear()} Serene Bliss Yoga. All rights reserved.
         </div>
       </footer>
     </div>

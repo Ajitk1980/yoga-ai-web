@@ -19,6 +19,13 @@ export default function HeroSection() {
                 <div className="absolute inset-0 bg-gradient-to-b from-transparent via-transparent to-charcoal-900/60" />
             </div>
 
+            {/* Navbar / Brand */}
+            <nav className="absolute top-0 left-0 w-full p-6 z-20 flex justify-between items-center">
+                <div className="text-white font-serif text-2xl tracking-wide font-medium">
+                    Serene Bliss Yoga
+                </div>
+            </nav>
+
             {/* Content */}
             <div className="relative z-10 h-full flex flex-col items-center justify-center text-center px-4">
                 <motion.span
