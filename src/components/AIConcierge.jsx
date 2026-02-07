@@ -9,6 +9,7 @@ export default function AIConcierge() {
     const [loading, setLoading] = useState(false);
     const [recommendations, setRecommendations] = useState(null);
     const [selectedClass, setSelectedClass] = useState(null);
+    const [debugLog, setDebugLog] = useState(null);
 
     const handleSubmit = async (e) => {
         e.preventDefault();
@@ -16,10 +17,19 @@ export default function AIConcierge() {
 
         setLoading(true);
         setRecommendations(null);
+        setDebugLog({ type: 'info', message: 'Sending request to n8n webhook...' });
 
         // Call API
-        const results = await getAIRecommendation(input);
-        setRecommendations(results);
+        const { data, error } = await getAIRecommendation(input);
+
+        if (error) {
+            setDebugLog({ type: 'error', message: `Error: ${error}` });
+            setRecommendations(null);
+        } else {
+            setRecommendations(data);
+            setDebugLog({ type: 'success', message: `Success! Received ${data.length} recommendations.` });
+        }
+
         setLoading(false);
     };
 
@@ -39,14 +49,14 @@ export default function AIConcierge() {
                     </p>
                 </div>
 
-                <form onSubmit={handleSubmit} className="mb-16 relative z-20">
+                <form onSubmit={handleSubmit} className="mb-8 relative z-20">
                     <div className="relative max-w-2xl mx-auto">
                         <input
                             type="text"
                             value={input}
                             onChange={(e) => setInput(e.target.value)}
                             placeholder="e.g., I've had a long week and need to relax..."
-                            className="w-full p-6 pr-16 bg-charcoal-800/50 backdrop-blur-md border border-charcoal-700 rounded-2xl text-xl text-white placeholderable-charcoal-500 focus:outline-none focus:border-sage-500 focus:ring-1 focus:ring-sage-500 transition-all shadow-lg"
+                            className="w-full p-6 pr-16 bg-charcoal-800/50 backdrop-blur-md border border-charcoal-700 rounded-2xl text-xl text-white placeholder:text-charcoal-500 focus:outline-none focus:border-sage-500 focus:ring-1 focus:ring-sage-500 transition-all shadow-lg"
                         />
                         <button
                             type="submit"
@@ -61,6 +71,22 @@ export default function AIConcierge() {
                         </button>
                     </div>
                 </form>
+
+                {/* Debug Log for User */}
+                <div className="max-w-2xl mx-auto mb-16">
+                    {debugLog && (
+                        <div className={`p-4 rounded-lg text-sm font-mono border ${debugLog.type === 'error'
+                            ? 'bg-red-900/20 border-red-800 text-red-200'
+                            : 'bg-charcoal-800/50 border-charcoal-700 text-sage-300'
+                            }`}>
+                            <p className="flex items-center gap-2">
+                                <span className={`w-2 h-2 rounded-full ${debugLog.type === 'error' ? 'bg-red-500' : 'bg-sage-500'
+                                    }`} />
+                                {debugLog.message}
+                            </p>
+                        </div>
+                    )}
+                </div>
 
                 <AnimatePresence>
                     {recommendations && (
